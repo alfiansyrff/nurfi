@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=s, initial-scale=1.0">
+  <!-- Link CSS -->
+  <link rel="stylesheet" href="./Assets/css/profil.css">
+  <link rel="stylesheet" href="./Assets/css/loader.css">
+  <link rel="stylesheet" href="./Assets/css/responsiveNavbar.css">
+  <!-- Link Favicon -->
+  <link rel="shortcut icon" href="./Assets/image/nurfi-logo.png" type="image/x-icon">
+  
+  <title>Profil</title>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="#"><img src="./Assets/image/nurfi-logo.png" alt="Logo">Nurfi</a>
+    </div>
+    <ul class="menu">
+      <li><a href="./index.html" class="hover-underline-animation">Beranda</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown__btn hover-underline-animation">
+          <span id="beasiswa">Beasiswa</span>
+          <img src="./Assets/image/down-arrow.png" alt="down-arrow" id="dropdown__symbol">
+        </a>
+        <div class="dropdown__content">
+          <a href="./nurfi.html">Beasiswa Nurfi</a>
+          <a href="./beasiswa.html">Beasiswa Umum</a>
+        </div>
+      </li>
+      <li><a href="./tips.html" class="hover-underline-animation">Tips</a></li>
+      <li><a href="./forum.html" class="hover-underline-animation">Forum</a></li>
+      <li><a href="./belajar.html" class="hover-underline-animation">Belajar</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown__btn hover-underline-animation">Berbagi
+          <img src="./Assets/image/down-arrow.png" alt="down-arrow" id="dropdown__symbol">
+        </a>
+        <div class="dropdown__content">
+          <a href="./donasi.html">Ikut Donasi</a>
+          <a href="./motivasi.html">Tips & Motivasi</a>
+        </div>
+      </li>
+    </ul>
+    <div class="tombol">
+      <a href="./login.html">Masuk</a>
+      <a href="./register.html">Daftar</a>
+    </div>
+    <span class="toggle-menu">&#9776;</span>
+  </nav>
+  
+  <!-- End of Navbar -->
+
+  <!-- Scroll Indicator -->
+  <div class="indicator">
+    <div class="indicator__container">
+      <div id="indicator__bar"></div>
+    </div>
+  </div>
+  <!-- End of scroll indicator -->
+
+  <main>
+    <div class="container">
+      
+      <div class="profil__container">
+        <img src="./Assets/image/gundul.png" alt="">
+      </div>
+
+      <div class="data__container">
+        <form action="#">
+
+          <label for="nama">Nama</label>
+          <input type="text" name="nama" id="nama" value="Alfian Syarif" readonly>
+
+          <label for="username">Username</label>
+          <input type="text" name="username" id="username" value="AlfianSyarif" readonly>
+          
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" value="222112218@stis.ac.id" readonly>
+          
+          <label for="password">Ubah Password</label>
+          <input type="password" name="password" id="password" value="">
+          
+          <label for="confirm__password">Konfirmasi Password</label>
+          <input type="password" name="confirm__password" id="confirm__password" value="">
+
+          <button type="submit">Ubah Password</button>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- footer -->
+  <footer>
+    <div class="footer-wrapper">
+      <div class="info-footer">
+        <h5>Hubungi Kami</h5>
+        <address>
+          Jalan Otto Iskandar Dinata No. 64 Jakarta Timur
+          <hr>
+          <p> Atau </p>
+          <a href="mailto:nurfi@gmail.com" id="email-btn">Kirim Email</a>
+        </address>
+      </div>
+      <div class="menu-footer">
+        <ul>
+          <li><h5>Menu</h5></li>
+          <li> <a href="#" >Home</a></li>
+          <li> <a href="#" target="_self">Beasiswa</a></li>
+          <li> <a href="#">Tips</a></li>
+          <li> <a href="#">Forum</a></li>
+          <li> <a href="#">Belajar</a></li>
+       </ul>   
+      </div>
+      <div class="copyright">
+        <img src="./Assets/image/nurfi-logo.png" alt="logo">
+        <p>&copy; 2023 Nurfi | Seribu Cahaya Harapan Pemuda </p>
+        <img src="./Assets/image/instagram.png" alt="" class="sosmed">
+        <img src="./Assets/image/tiktok.png" alt="" class="sosmed">
+      </div>
+    </div>
+  </footer>
+
+  <!-- Loader -->
+  <div class="loader loader-hidden">
+    <img src="./Assets/image/loader.gif" alt="Loader Image">
+  </div>
+  <!-- End of Loader -->
+
+  <script src="./Assets/js/indicatorBar.js"></script>
+  <script src="./Assets/js/loader.js"></script>
+  <script src="./Assets/js/responsiveNav.js"></script>
+</body>
+</html>

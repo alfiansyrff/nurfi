@@ -1,0 +1,78 @@
+@media (max-width: 768px) {
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+  }
+  .menu {
+    display: none;
+    flex-direction: column;
+  }
+
+  .logo a img {
+    /* margin: 0 0.5em; */
+    padding: 0.2em;
+  }
+
+  .toggle-menu {
+    display: block;
+    padding: 0.2em;
+    margin: 0.5em;
+  }
+
+  .toggle-menu:hover {
+    background-color: #a8bfd464;
+    border-radius: 7px;
+  }
+
+  .tombol {
+    display: none;
+  }
+
+  .dropdown__content {
+    font-size: small;
+    min-width: 80px;
+    width: 100px;
+  }
+
+  .menu.show {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 3.3em;
+    right: 1em;
+    z-index: 999;
+    background: rgba(255, 255, 255, 0.678);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    width: 7em;
+  }
+
+  .menu.show li {
+    margin: 1em 0;
+  }
+
+  .menu.show li.active a {
+    background-color: #a8bfd464;
+    padding: 4px 7px;
+    border-radius: 6px;
+  }
+
+  .menu.show li a {
+    color: #094067;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+  }
+
+  .menu.show li a:hover {
+    color: #3da9fc;
+  }
+
+  .tombol.show {
+    display: block;
+  }
+}
