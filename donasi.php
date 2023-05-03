@@ -13,7 +13,7 @@
     <title>Donasi Beasiswa</title>
 </head>
 <body>
-    
+
   <!-- Navbar -->
   <nav class="navbar">
     <div class="logo">
@@ -22,7 +22,7 @@
     <ul class="menu">
       <li><a href="./index.html" class="hover-underline-animation">Beranda</a></li>
       <li class="dropdown">
-        <a href="#" class="dropdown__btn hover-underline-animation">Beasiswa 
+        <a href="#" class="dropdown__btn hover-underline-animation">Beasiswa
           <img src="./Assets/image/down-arrow.png" alt="down-arrow" id="dropdown__symbol">
         </a>
         <div class="dropdown__content">
@@ -50,7 +50,7 @@
     </div>
     <span class="toggle-menu">&#9776;</span>
   </nav>
-  
+
   <!-- End of Navbar -->
 
   <!-- Scroll Indicator -->
@@ -68,7 +68,7 @@
         <img src="./Assets/image/bca.png" alt="Logo Bank BCA">
           <p>Nomor Rekening: 0888032473</p>
       </div>
-      
+
       <div class="bank">
         <img src="./Assets/image/bri.png" alt="Logo Bank BRI">
         <p>Nomor Rekening: 23232232311</p>
@@ -78,51 +78,58 @@
         <img src="./Assets/image/mandiri.webp" alt="Logo Bank Mandiri">
         <p>Nomor Rekening: 2323232211</p>
       </div>
-      
+
       <div class="bank">
         <img src="./Assets/image/link-aja.png" alt="Logo Link Aja">
         <p>Nomor: 6281234567819</p>
       </div>
-      
-      <form action="#" method="post">
+
+      <form action="" method="post">
           <label for="nama">Nama Lengkap</label>
           <input type="text" id="nama" name="nama" required autofocus>
-          
+
           <label for="email">Alamat Email</label>
           <input type="email" id="email" name="email" required>
 
           <label for="nomor">Nomor yang Dapat Dihubungi</label>
           <input type="tel" name="nomor" id="nomor" placeholder="62xxxxxxxxx" pattern="^62\d{9}$" required>
-          
+
           <label>Metode Pembayaran</label>
-          
+
           <div class="radio__wrapper">
             <input type="radio" required name="metode" id="ATM" value="ATM / Mbanking">
-            
+
             <label for="ATM">ATM / Mbanking</label>
-            
+
             <input type="radio" required name="metode" id="e-wallet" value="E-Wallet">
-            
+
             <label for="e-wallet">E-Wallet</label>
           </div>
-          
+
           <label for="banks">Bank Tujuan Transfer</label>
-          
+
           <div class="select__bank">
             <select name="banks" id="banks">
               <option value="BRI">BRI</option>
               <option value="BCA">BCA</option>
               <option value="Mandiri">Mandiri</option>
-            </select>   
+              <option value="-">Via E-wallet</option>
+            </select>
           </div>
-          
+
           <label for="image">Upload Bukti Transfer</label>
           <div class="upload__wrapper">
             <input type="file" id="image" name="image" accept="image/*" required>
           </div>
 
           <div class="btn__wrapper">
-            <button type="submit">Kirim Donasi</button>
+            <button type="submit" name="submit">Kirim Donasi</button>
+            <?php
+              if(isset($_POST['submit'])) {
+
+              }
+            ?>
+
           </div>
         </form>
       </div>
@@ -148,7 +155,7 @@
           <li> <a href="#">Tips</a></li>
           <li> <a href="#">Forum</a></li>
           <li> <a href="#">Belajar</a></li>
-       </ul>   
+       </ul>
       </div>
       <div class="copyright">
         <img src="./Assets/image/nurfi-logo.png" alt="logo">
@@ -173,4 +180,3 @@
     <script src="./Assets/js/donasi.js"></script>
   </body>
   </html>
-  

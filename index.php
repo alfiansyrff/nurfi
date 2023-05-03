@@ -37,7 +37,7 @@
     <ul class="menu">
       <li class=" active"><a href="./index.html" class="hover-underline-animation">Beranda</a></li>
       <li class="dropdown">
-        <a href="#" class="dropdown__btn hover-underline-animation">Beasiswa 
+        <a href="#" class="dropdown__btn hover-underline-animation">Beasiswa
           <img src="./Assets/image/down-arrow.png" alt="down-arrow" id="dropdown__symbol">
         </a>
         <div class="dropdown__content">
@@ -64,7 +64,7 @@
     </div>
     <span class="toggle-menu">&#9776;</span>
   </nav>
-  
+
   <!-- End of Navbar -->
 
 
@@ -130,7 +130,7 @@
         <div class="statistic">
           <h5>100+</h5>
           <p>Mentor peraih awardee beasiswa</p>
-          
+
         </div>
         <div class="statistic">
           <h5>500+</h5>
@@ -165,7 +165,7 @@
           <div class="bantuan-description">Berbagi Tips dan Motivasi</div>
         </div>
       </div>
-      
+
     </div>
     <div class="donasi__img">
       <img src="./Assets/image/donasi.svg" alt="ilustrasi donasi">
@@ -195,7 +195,7 @@
           <li> <a href="#">Belajar</a></li>
           <li> <a href="logout.php">logout</a></li>
 
-       </ul>   
+       </ul>
       </div>
       <div class="copyright">
         <img src="./Assets/image/nurfi-logo.png" alt="logo">
@@ -205,7 +205,7 @@
       </div>
     </div>
 </footer>
-  
+
   <!-- end of footer -->
 
   <!-- Loader -->

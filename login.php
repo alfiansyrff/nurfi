@@ -5,7 +5,7 @@
 
     $username = stripslashes($_POST['username']);
     $username = mysqli_real_escape_string($conn, $username);
-    
+
     $password = stripslashes($_POST['password']);
     $password = mysqli_real_escape_string($conn, $password);
     $password = md5($password);
@@ -19,15 +19,15 @@
       session_start();
       $_SESSION['username'] = $username;
       $_SESSION['status'] = 'login';
-      header("location: index.html");
-      // if(password_verify($password, $hash)){   
+      header("location: index.php");
+      // if(password_verify($password, $hash)){
       //     // header('Location: index.html');
       //     var_dump($hash);
       // }
     } else {
       echo "Data tidak ditemukan";
     }
-  
+
   }
 
 
@@ -83,7 +83,7 @@
         <!-- <a href="#" id="login">LOGIN</a> -->
 
         <p id="register-now">Belum punya akun? <span id="register-btn">Daftar Sekarang</span></p>
-        
+
       </form>
     </div>
   </div>

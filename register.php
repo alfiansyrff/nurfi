@@ -27,7 +27,9 @@
         $result = mysqli_query($conn, $query);
 
         if($result) {
-          header('Location: index.html');
+          session_start();
+          $_SESSION['status'] = 'login';
+          header('Location:index.php');
         }
       } else {
         echo "Username sudah dipakai";
@@ -37,7 +39,7 @@
       echo "Password Tidak Sama";
     }
   }
-?>  
+?>
 
 
 
@@ -73,23 +75,23 @@
           <input type="email" name="email" id="email" placeholder="Email" required>
 
           <input type="password" name="password" id="password" placeholder="Password" required>
-          
+
           <input type="password" name="konfirm_password" id="konfirm__password" placeholder="Konfirmasi password" required>
         </div>
 
         <div id="message">
-         
+
         </div>
-      
+
 
           <div class="btn__info">
 
             <button type="submit" name="submit">Daftar</button>
-            
+
             <p>Dengan mendaftar, kamu setuju dengan <span>syarat dan kentetuan</span> kami </p>
 
             <p>Sudah punya akun? <span><a href="./login.html">Masuk</a></span></p>
-            
+
           </div>
         </form>
       </div>
