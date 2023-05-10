@@ -1,3 +1,8 @@
+<?php
+  session_start();
+  require_once('connection/db.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -84,7 +89,7 @@
         <p>Nomor: 6281234567819</p>
       </div>
 
-      <form action="" method="post">
+      <form action="" method="post" enctype="multipart/form-data">
           <label for="nama">Nama Lengkap</label>
           <input type="text" id="nama" name="nama" required autofocus>
 
@@ -92,7 +97,7 @@
           <input type="email" id="email" name="email" required>
 
           <label for="nomor">Nomor yang Dapat Dihubungi</label>
-          <input type="tel" name="nomor" id="nomor" placeholder="62xxxxxxxxx" pattern="^62\d{9}$" required>
+          <input type="tel" name="nomor" id="nomor" placeholder="62xxxxxxxxx" required>
 
           <label>Metode Pembayaran</label>
 
@@ -126,7 +131,37 @@
             <button type="submit" name="submit">Kirim Donasi</button>
             <?php
               if(isset($_POST['submit'])) {
+                // ambil data file
 
+                $namaSementara = $_FILES['image']['tmp_name'];
+                $timestamp = date("YmdHis");
+                $namaFile = uniqid() . $timestamp . '.' . pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+
+                // tentukan lokasi file akan dipindahkan
+                $dirUpload = "Assets/upload/";
+
+                // pindahkan file
+                $terupload = move_uploaded_file($namaSementara, $dirUpload.$namaFile);                
+
+                $nama = $_POST['nama'];
+                $email = $_POST['email'];
+                $nomor = $_POST['nomor'];
+                $metode = $_POST['metode'];
+                $bank = $_POST['banks'];
+                $bukti = $namaFile;
+                $id_user = $_SESSION['user']['id'];
+
+                $query = "INSERT INTO tb_donasi (nama, email, nomor, metode_bayar, bank_tujuan, bukti, id_user) VALUES ('$nama', '$email', '$nomor', '$metode', '$bank', '$bukti', '$id_user')";
+
+                $result = mysqli_query($conn, $query);
+
+                if ($result) {
+                  print_r($_SESSION['user']['username']);
+                  // session_start();
+                  // $_SESSION['status'] = 'login';
+                  // $_SESSION['id_user'] = $rows['id'];
+                  // header('Location:index.php');
+                }
               }
             ?>
 

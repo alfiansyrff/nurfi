@@ -17,8 +17,10 @@
 
     if($rows > 0) {
       session_start();
+      $row = mysqli_fetch_assoc($result);
       $_SESSION['username'] = $username;
       $_SESSION['status'] = 'login';
+      $_SESSION['user'] = $row;
       header("location: index.php");
       // if(password_verify($password, $hash)){
       //     // header('Location: index.html');

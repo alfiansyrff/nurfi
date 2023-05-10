@@ -29,6 +29,7 @@
         if($result) {
           session_start();
           $_SESSION['status'] = 'login';
+          $_SESSION['id_user'] = $rows['id'];
           header('Location:index.php');
         }
       } else {
