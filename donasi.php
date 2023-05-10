@@ -151,7 +151,7 @@
                 $bukti = $namaFile;
                 $id_user = $_SESSION['user']['id'];
 
-                $query = "INSERT INTO tb_donasi (nama, email, nomor, metode_bayar, bank_tujuan, bukti, id_user) VALUES ('$nama', '$email', '$nomor', '$metode', '$bank', '$bukti', '$id_user')";
+                $query = "INSERT INTO donasi (nama, email, nomor, metode_bayar, bank_tujuan, bukti, id_user) VALUES ('$nama', '$email', '$nomor', '$metode', '$bank', '$bukti', '$id_user')";
 
                 $result = mysqli_query($conn, $query);
 
