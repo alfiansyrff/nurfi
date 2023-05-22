@@ -237,12 +237,12 @@ th {
 }
 
 .myTable tr:last-child {
-  border-bottom: 2px solid #7f5af0; 
+  border-bottom: 2px solid #7f5af0;
 }
 
 tr {
   transition: transform 0.2s ease-out;
-  
+
 }
 
 tr:hover {
@@ -250,34 +250,47 @@ tr:hover {
   color: #7f5af0;
   background-color: #242222;
   cursor: pointer;
-} 
-
-.myTable a {
-  text-decoration: none;
-  border-radius: 5px;
-  padding: 5px;
-  font-size: 12px;
-  color: #fffffe;
-  border: 1px solid #2cb67d;
 }
 
-.myTable a:hover {
-  color: #fffffe;
-  background-color: #2cb67d;
+#button_group {
+  margin: auto;
+  left: auto;
 }
 
-.myTable .delete {
-  text-decoration: none;
-  border-radius: 5px;
-  padding: 5px;
+.delete_form, .edit_form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete_form #delete{
+  color: #ef4565;
+  background-color: transparent;
+  height: 30px;
+  width: 30px;
+  padding: 2px;
   font-size: 12px;
-  color: #fffffe;
   border: 1px solid #ef4565;
 }
 
-.myTable .delete:hover {
+.delete_form #delete:hover {
   color: #fffffe;
   background-color: #ef4565;
+}
+
+.edit_form #edit {
+  color: green;
+  height: 30px;
+  background-color: transparent;
+  width: 30px;
+  padding: 3px;
+  font-size: 12px;
+  border: 1px solid green;
+}
+
+.edit_form #edit:hover {
+  color: #fffffe;
+  background-color: green;
 }
 
 .add__btn {
@@ -302,8 +315,8 @@ tr:hover {
   padding: 6px;
 }
 
-/* 
-  Modal CSS 
+/*
+  Modal CSS
 */
 
 /* Modal Overlay */
@@ -502,12 +515,12 @@ button[type="submit"]:hover {
 }
 
 .modal-content::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px #5f6c7b; 
+  box-shadow: inset 0 0 5px #5f6c7b;
   border-radius: 6px;
 }
- 
+
 .modal-content::-webkit-scrollbar-thumb {
-  background: #5f6c7b; 
+  background: #5f6c7b;
   border-radius: 6px;
 }
 

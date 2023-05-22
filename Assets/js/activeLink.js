@@ -13,7 +13,7 @@ menuLinks.forEach(link => {
     menuLinks.forEach(item => {
       item.classList.remove('active');
     });
-    
+
     link.parentElement.classList.add('active');
   }
 });

@@ -1,3 +1,7 @@
+<?php
+  require_once('./connection/db.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,14 +19,14 @@
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar">
+  <!-- <nav class="navbar">
     <div class="logo">
       <a href="#"><img src="./Assets/image/nurfi-logo.png" alt="Logo">Nurfi</a>
     </div>
     <ul class="menu">
       <li><a href="./index.html" class="hover-underline-animation">Beranda</a></li>
       <li class="dropdown">
-        <a href="#" class="dropdown__btn hover-underline-animation">Beasiswa 
+        <a href="#" class="dropdown__btn hover-underline-animation">Beasiswa
           <img src="./Assets/image/down-arrow.png" alt="down-arrow" id="dropdown__symbol">
         </a>
         <div class="dropdown__content">
@@ -48,8 +52,8 @@
       <a href="./register.html">Daftar</a>
     </div>
     <span class="toggle-menu">&#9776;</span>
-  </nav>
-  
+  </nav> -->
+  <?php include('partials/navbar.php'); ?>
   <!-- End of Navbar -->
 
   <!-- Scroll Indicator -->
@@ -64,7 +68,7 @@
   <div class="heading__wrapper">
     <div class="title__side">
       <h3>Belajar dan Upgrade Skill</h3>
-      <p>Tingkatkan skill kalian dengan berbagai akses pembelajaran yang relevan</p>   
+      <p>Tingkatkan skill kalian dengan berbagai akses pembelajaran yang relevan</p>
     </div>
     <div class="img__side">
       <img src="./Assets/image/Write.svg" alt="Gambar Belajar Nurfi">
@@ -73,7 +77,7 @@
   <!-- End of Heading -->
 
   <!-- Search Field -->
-  
+
   <div class="search">
 
     <input type="text" placeholder="Cari Materi Belajar" class="search__input">
@@ -86,7 +90,7 @@
 
   <!-- Content -->
   <div class="cards">
-    <div class="card">
+    <!-- <div class="card">
       <h3 class="card__title">Bagaimana cara Membuat CV Untuk Beasiswa?
       </h3>
       <p class="card__content">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
@@ -100,10 +104,32 @@
           </svg>
         </a>
         </div>
-    </div>
+    </div> -->
+
+    <?php
+      $query_select = "SELECT * FROM sumber_belajar";
+      $result = mysqli_query($conn, $query_select);
+      while ($row = mysqli_fetch_assoc($result)) {
+        ?>
+      <div class="card">
+        <h3 class="card__title"><?php echo $row['judul']; ?></h3>
+        <p class="card__content"><?php echo $row['deskripsi']; ?></p>
+        <div class="card__date"><?php echo $row['tanggal_upload']; ?></div>
+        <div class="card__arrow">
+          <a href="<?php echo $row['link']; ?>">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" height="15" width="15">
+              <path fill="#fff" d="M13.4697 17.9697C13.1768 18.2626 13.1768 18.7374 13.4697 19.0303C13.7626 19.3232 14.2374 19.3232 14.5303 19.0303L20.3232 13.2374C21.0066 12.554 21.0066 11.446 20.3232 10.7626L14.5303 4.96967C14.2374 4.67678 13.7626 4.67678 13.4697 4.96967C13.1768 5.26256 13.1768 5.73744 13.4697 6.03033L18.6893 11.25H4C3.58579 11.25 3.25 11.5858 3.25 12C3.25 12.4142 3.58579 12.75 4 12.75H18.6893L13.4697 17.9697Z"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    <?php
+      }
+    ?>
 
 
-    <div class="card">
+    <!-- <div class="card">
+
       <h3 class="card__title">Bagaimana cara mendaftar Beasiswa Djarum ?
       </h3>
       <p class="card__content">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
@@ -245,11 +271,11 @@
           </svg>
         </a>
         </div>
-    </div>
-    
+    </div> -->
+
   </div>
   <!-- End of Content -->
-  
+
   <!-- footer -->
   <footer>
     <div class="footer-wrapper">
@@ -270,7 +296,7 @@
           <li> <a href="#">Tips</a></li>
           <li> <a href="#">Forum</a></li>
           <li> <a href="#">Belajar</a></li>
-       </ul>   
+       </ul>
       </div>
       <div class="copyright">
         <img src="./Assets/image/nurfi-logo.png" alt="logo">
@@ -294,6 +320,6 @@
   <script src="./Assets/js/responsiveNav.js"></script>
   <script src="./Assets/js/loader.js"></script>
   <script src="./Assets/js/belajar.js"></script>
-  
+
 </body>
 </html>

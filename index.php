@@ -30,50 +30,12 @@
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">
-      <a href="#"><img src="./Assets/image/nurfi-logo.png" alt="Logo">Nurfi</a>
-    </div>
-    <ul class="menu">
-      <li class=" active"><a href="./index.html" class="hover-underline-animation">Beranda</a></li>
-      <li class="dropdown">
-        <a href="#" class="dropdown__btn hover-underline-animation">Beasiswa
-          <img src="./Assets/image/down-arrow.png" alt="down-arrow" id="dropdown__symbol">
-        </a>
-        <div class="dropdown__content">
-          <a href="./nurfi.html">Beasiswa Nurfi</a>
-          <a href="./beasiswa.html">Beasiswa Umum</a>
-        </div>
-      </li>
-      <li><a href="./tips.html" class="hover-underline-animation">Tips</a></li>
-      <li><a href="./forum.html" class="hover-underline-animation">Forum</a></li>
-      <li><a href="./belajar.html" class="hover-underline-animation">Belajar</a></li>
-      <li class="dropdown">
-        <a href="#" class="dropdown__btn hover-underline-animation">Berbagi
-          <img src="./Assets/image/down-arrow.png" alt="down-arrow" id="dropdown__symbol">
-        </a>
-        <div class="dropdown__content">
-          <a href="./donasi.html">Ikut Donasi</a>
-          <a href="./motivasi.html">Tips & Motivasi</a>
-        </div>
-      </li>
-    </ul>
-    <div class="tombol">
-      <a href="./login.html">Masuk</a>
-      <a href="./register.html">Daftar</a>
-    </div>
-    <span class="toggle-menu">&#9776;</span>
-  </nav>
-
+  <?php include('partials/navbar.php'); ?>
   <!-- End of Navbar -->
 
 
   <!-- Scroll Indicator -->
-  <div class="indicator">
-    <div class="indicator__container">
-      <div id="indicator__bar"></div>
-    </div>
-  </div>
+  <?php include('partials/scrollbar.php'); ?>
   <!-- End of scroll indicator -->
 
 
@@ -173,40 +135,9 @@
   </section>
   <!-- End of Content Donasi -->
 
-  <!-- footer -->
-  <footer>
-    <div class="footer-wrapper">
-      <div class="info">
-        <h5>Hubungi Kami</h5>
-        <address>
-          Jalan Otto Iskandar Dinata No. 64 Jakarta Timur
-          <hr>
-          <p> Atau </p>
-          <a href="mailto:nurfi@gmail.com" id="email-btn">Kirim Email</a>
-        </address>
-      </div>
-      <div class="menu-footer">
-        <ul>
-          <li><h5>Menu</h5></li>
-          <li> <a href="#" >Home</a></li>
-          <li> <a href="#" target="_self">Beasiswa</a></li>
-          <li> <a href="#">Tips</a></li>
-          <li> <a href="#">Forum</a></li>
-          <li> <a href="#">Belajar</a></li>
-          <li> <a href="logout.php">logout</a></li>
-
-       </ul>
-      </div>
-      <div class="copyright">
-        <img src="./Assets/image/nurfi-logo.png" alt="logo">
-        <p>&copy; 2023 Nurfi | Seribu Cahaya Harapan Pemuda </p>
-        <img src="./Assets/image/instagram.png" alt="" class="sosmed">
-        <img src="./Assets/image/tiktok.png" alt="" class="sosmed">
-      </div>
-    </div>
-</footer>
-
-  <!-- end of footer -->
+  <!-- Footer -->
+  <?php include('partials/footer.php'); ?>
+  <!-- End of footer -->
 
   <!-- Loader -->
   <div class="loader loader-hidden">

@@ -5,7 +5,7 @@ const closeBtnBtm = document.querySelector("#close__btn");
 const addBtn = document.querySelector(".add__btn");
 const resetBtn = document.querySelector("#reset__btn");
 const form = document.querySelector('#add__form');
-const deleteBtn = document.querySelector('.delete');
+// const deleteBtn = document.querySelector('.delete');
 const editBtn = document.querySelector('.edit');
 const imageBtn  = document.querySelector("#profil");
 const profilModal = document.querySelector(".profil__modal");
@@ -25,9 +25,9 @@ const resetForm = () => {
   confirm('Apakah Anda Yakin?') == true ? form.reset() : alert('Reset dibatalkan');
 }
 
-const deleteData = () => {
-  confirm('Apakah Anda Yakin?') == true ? alert('Data berhasil dihapus'): alert('Hapus data dibatalkan');
-}
+// const deleteData = () => {
+//   confirm('Apakah Anda Yakin?') == true ? alert('Data berhasil dihapus'): alert('Hapus data dibatalkan');
+// }
 
 const editData = () => {
   alert('Data belum dapat diedit')
@@ -41,7 +41,7 @@ closeBtnBtm.addEventListener("click", hideModal);
 
 resetBtn.addEventListener('click', resetForm);
 
-deleteBtn.addEventListener('click', deleteData);
+// deleteBtn.addEventListener('click', deleteData);
 
 editBtn.addEventListener('click', editData);
 
@@ -52,3 +52,17 @@ imageBtn.addEventListener("click", () => {
 logoutBtn.addEventListener("click", () => {
   window.location.href = "../login.html";
 })
+
+function openModal(editId, editJudul, editDeskripsi, editLink) {
+    // Populate the modal fields with the retrieved data
+    document.getElementById('judul').value = editJudul;
+    document.getElementById('deskripsi').value = editDeskripsi;
+    document.getElementById('link').value = editLink;
+
+    // Set the edit_id value in the form action URL
+    document.getElementById('edit__form').action = "../admin/sumberBelajar.php?edit_id=" + editId;
+
+    // Display the modal
+    modalOverlay.classList.add("active");
+    modal.classList.add("active");
+  }
