@@ -408,6 +408,10 @@ body {
 
 }
 
+#flash-msg {
+  display: block;
+}
+
 .modal__container {
   display: none;
   position: fixed;
@@ -444,9 +448,19 @@ form {
   align-items: center;
 }
 
+#judul-modal {
+  align-items: center;
+  text-align: center;
+}
+
 form label {
   font-size: 1.5em;
   text-align: center;
+}
+
+#judul-pertanyaan{
+  width: 25em;
+  height: 2em;
 }
 
 textarea {

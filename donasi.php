@@ -20,7 +20,10 @@
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar">
+  <?php
+  include('./partials/navbar.php')
+  ?>
+  <!-- <nav class="navbar">
     <div class="logo">
       <a href="#"><img src="./Assets/image/nurfi-logo.png" alt="Logo">Nurfi</a>
     </div>
@@ -54,7 +57,7 @@
       <a href="./register.html">Daftar</a>
     </div>
     <span class="toggle-menu">&#9776;</span>
-  </nav>
+  </nav> -->
 
   <!-- End of Navbar -->
 
@@ -141,7 +144,7 @@
                 $dirUpload = "Assets/upload/";
 
                 // pindahkan file
-                $terupload = move_uploaded_file($namaSementara, $dirUpload.$namaFile);                
+                $terupload = move_uploaded_file($namaSementara, $dirUpload.$namaFile);
 
                 $nama = $_POST['nama'];
                 $email = $_POST['email'];
@@ -149,9 +152,10 @@
                 $metode = $_POST['metode'];
                 $bank = $_POST['banks'];
                 $bukti = $namaFile;
+                $tanggal = date("Y/m/d");
                 $id_user = $_SESSION['user']['id'];
 
-                $query = "INSERT INTO donasi (nama, email, nomor, metode_bayar, bank_tujuan, bukti, id_user) VALUES ('$nama', '$email', '$nomor', '$metode', '$bank', '$bukti', '$id_user')";
+                $query = "INSERT INTO donasi (nama, email, nomor, tanggal, metode_bayar, bank_tujuan, bukti, id_user) VALUES ('$nama', '$email', '$nomor', '$tanggal' ,'$metode', '$bank', '$bukti', '$id_user')";
 
                 $result = mysqli_query($conn, $query);
 

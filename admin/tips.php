@@ -1,3 +1,7 @@
+<?php
+    require_once("../connection/db.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,16 +75,43 @@
         <h1>Data Tips & Motivasi</h1>
         <table class="myTable">
           <tr>
-            <th>No.</th>
+            <th>Id</th>
             <th>Judul</th>
             <th>Tgl Upload</th>
             <th>Penulis</th>
             <th>Slug Content</th>
             <th>Banner</th>
             <th>Aksi</th>
-            
+
           </tr>
-          <tr>
+
+          <?php
+            $query_select = "SELECT * FROM tips_motivasi";
+            $result = mysqli_query($conn, $query_select);
+            while ($row = mysqli_fetch_assoc($result)) {
+              ?>
+              <tr>
+                <td><?php echo $row['id'] ?></td>
+                <td><?php echo $row['judul'] ?></td>
+                <td><?php echo $row['tgl_upload']?></td>
+                <td><?php echo $row['penulis'] . ' - ' . $row['awardee'] ?></td>
+                <td><?php echo implode(' ', array_slice(str_word_count($row['slug_content'], 1), 0, 20)); ?></td>
+                <td>
+
+                  <!-- <img src="../Assets/upload/" . <? php echo $row['bukti'] ?> alt=""> -->
+                  <img src=<?php echo "../Assets/upload/tips-motivasi/" . $row['banner'] ?> alt="banner" width="50">
+                </td>
+                <td>
+                  <div class="tombol-table">
+                    <a href="#" class="delete">Hapus</a>
+                    <a href="#" class="edit">Ubah</a>
+                  </div>
+                </td>
+              </tr>
+          <?php
+            }
+          ?>
+          <!-- <tr>
             <td>1</td>
             <td>Bagimana Memperoleh Beasiswa S1 di luar negeri</td>
             <td>01/02/2002</td>
@@ -239,7 +270,7 @@
                 <a href="#" class="edit">Ubah</a>
               </div>
             </td>
-          </tr>
+          </tr> -->
         </table>
         <div class="add__btn">
           <a href="#"> &#43; Tambah Data</a>
@@ -248,7 +279,7 @@
         <!-- Modal Form Tambah Beasiswa-->
         <div class="modal-overlay">
           <div class="modal">
-            
+
             <a class="close-modal">
               <svg viewBox="0 0 20 20">
                 <path fill="#000000" d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path>
@@ -259,13 +290,13 @@
               <form id="add__form">
                 <label for="judul">Judul</label>
                 <input type="text" id="judul" name="judul" required>
-                
+
                 <label for="penulis">Penulis</label>
                 <input type="text" id="penulis" name="penulis" required>
 
                 <label for="content">Content</label>
                 <textarea name="content" id="content" cols="30" rows="10"></textarea>
-            
+
                 <label for="banner">Upload Banner</label>
                 <input type="file" id="banner" name="banner" accept="image/*" required>
 
@@ -276,13 +307,13 @@
                 </div>
               </form>
             </div>
-            
-            
+
+
           </div>
         </div><!-- overlay -->
         <!-- End of Modal Form -->
       </div>
-      
+
     </div>
     <!-- End of Content -->
   </div>

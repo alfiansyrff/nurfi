@@ -1,3 +1,9 @@
+<?php 
+  session_start();
+  ob_start();
+  require_once('./connection/db.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,7 +71,7 @@
     <div class="title__side">
       <h3>Forum Beasiswa</h3>
       <p>Kalian bisa bertanya atau berbagi mengenai perihal yang berkaitan dengan beasiswa</p>
-      <a href="#" class="tanya__btn">Buat pertanyaan</a>
+      <a href="javascript:void(0);" class="tanya__btn">Buat pertanyaan</a>
       <a href="./Assets/pdf/aturan.pdf" target="_blank">Tata aturan</a>
       
     </div>
@@ -84,10 +90,38 @@
 
   </div>
   <!-- End of Search Field -->
-
+  
+  <!-- Flash Message -->
+  <div id="flash-msg">  
+    <?php 
+      if(isset($_GET['sukses']) && $_GET['sukses'] == 1){
+        echo "<p>Berhasil membuat pertanyaan!</p>";
+      }
+    ?>
+  </div>
+  <!-- End of flash message -->
   <!-- Content -->
   <div class="cards">
-    <div class="card">
+    <?php
+    $query_select = "SELECT topik.*, users.username, users.email FROM topik INNER JOIN users ON users.id = topik.id_user";
+
+    $result = mysqli_query($conn, $query_select);
+    
+    while ($row = mysqli_fetch_assoc($result)) {
+      ?>
+       <div class="card">
+        <h4 class="title-card"> <?php echo $row['judul']; ?> </h4>
+        <div class="info">
+          <span class="akun">  <?php echo '@' . $row['username']; ?> </span>
+          <span class="tanggal"> <?php echo explode(' ', $row['tanggal'])[0]; ?> </span>
+          <a href="./pertanyaanForum.html" class="forum-btn">Lihat Diskusi</a>
+        </div>
+      </div>
+      <?php
+    }
+    ?>
+
+    <!-- <div class="card">
       <h4 class="title-card">Bagaimana cara mendaftar Beasiswa Djarum ?</h4>
       <div class="info">
         <span class="akun">@alfiansyarif</span>
@@ -166,24 +200,57 @@
         <span class="tanggal">1 minggu yang lalu</span>
         <a href="./pertanyaanForum.html" class="forum-btn">Lihat Diskusi</a>
       </div>
-    </div>
+    </div> -->
   </div>
   <!-- End of Content -->
 
-  <!-- Modal Jawaban -->
+  <!-- Modal Pertanyaan -->
   <div class="modal__container">
     <div class="modal">
-      <form action="#">
-        <label for="jawab">Tulis Pernyaanmu</label>
-        <textarea name="jawab" id="jawab" cols="30" rows="10"></textarea>
+      <h1 id="judul-modal">Tulis Pertanyaanmu</h1>
+      <form action="" method="POST" >
+        <label for="judul">Judul</label>
+        <input type="text" name="judul" value="" id="judul-pertanyaan">
+        <label for="jawab">Deskripsi</label>
+        <textarea name="jawab" id="jawab" cols="15" rows="10"></textarea>
         <div class="btn">
-          <button id="batal">Batal</button>
-          <button id="kirim">Kirim</button>
+          <button id="batal" name="batal">Batal</button>
+          <button id="kirim" name="kirim" >Kirim</button>
+
+          <?php
+          error_reporting(E_ALL);
+          ini_set('display_errors', 1);
+
+          if (isset($_POST['kirim'])) {
+              
+              date_default_timezone_set('Asia/Jakarta');
+
+               $judul = $_POST['judul'];
+               $deskripsi = $_POST['jawab'];
+               $tanggal = date("Y/m/d/H:m:s");
+               $id_user = $_SESSION['user']['id'];
+
+               $query = "INSERT INTO topik (judul, deskripsi, tanggal, id_user) VALUES ('$judul', '$deskripsi', '$tanggal', '$id_user')";
+
+                $result = mysqli_query($conn, $query);
+
+                if($result) {
+                  echo '<script language="javascript">';
+                  echo 'alert("Berhasil menambahkan pertanyaan")';
+                  echo '</script>';
+                } else {
+                  echo '<script language="javascript">';
+                  echo 'alert("Gagal menambahkan pertanyaan")';
+                  echo '</script>';
+                }
+              
+            }
+          ?>
         </div>
       </form>
     </div>
   </div>
-  <!-- End of modal jawaban -->
+  <!-- End of modal pertanyaan -->
 
   <!-- footer -->
   <footer>

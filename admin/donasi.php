@@ -1,3 +1,7 @@
+<?php
+  require_once("../connection/db.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -79,9 +83,39 @@
             <th>Bank Tujuan</th>
             <th>Bukti</th>
             <th>Aksi</th>
-            
+
           </tr>
-          <tr>
+
+          <?php
+            $query_select = "SELECT * FROM donasi";
+            $result = mysqli_query($conn, $query_select);
+            $counter = 1;
+            while ($row = mysqli_fetch_assoc($result)) {
+              ?>
+              <tr>
+                <td><?php echo $counter ?></td>
+                <td><?php echo $row['nama'] ?></td>
+                <td><?php echo $row['email'] . ' / ' . $row['nomor'] ?></td>
+                <td><?php echo $row['tanggal'] ?></td>
+                <td><?php echo $row['metode_bayar'] ?></td>
+                <td><?php echo $row['bank_tujuan'] ?></td>
+                <td>
+
+                  <!-- <img src="../Assets/upload/" . <? php echo $row['bukti'] ?> alt=""> -->
+                  <img src=<?php echo "../Assets/upload/" . $row['bukti'] ?> alt="bukti-donasi" width="50">
+                </td>
+                <td>
+                  <div class="tombol-table">
+                    <a href="#" class="delete">Hapus</a>
+                    <a href="#" class="edit">Ubah</a>
+                  </div>
+                </td>
+              </tr>
+          <?php
+              $counter++;
+            }
+          ?>
+          <!-- <tr>
             <td>1</td>
             <td>Alfian Syarif</td>
             <td>alfian@gmail.com/081234567819</td>
@@ -97,8 +131,8 @@
                 <a href="#" class="edit">Ubah</a>
               </div>
             </td>
-          </tr>
-          <tr>
+          </tr> -->
+          <!-- <tr>
             <td>2</td>
             <td>Alfian Syarif</td>
             <td>alfian@gmail.com/081234567819</td>
@@ -250,11 +284,11 @@
                 <a href="#" class="edit">Ubah</a>
               </div>
             </td>
-          </tr>
-          
+          </tr> -->
+
         </table>
       </div>
-      
+
     </div>
     <!-- End of Content -->
   </div>
