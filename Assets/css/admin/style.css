@@ -1,7 +1,7 @@
 body{
   margin: 0;
   height: 100vh;
-  font-family: 'Spectral', serif, 'Karla', sans-serif;
+  font-family: Poppins, sans-serif;
   -webkit-font-smoothing: antialiased;
   background-color: #16161a;
   box-sizing: border-box;
@@ -163,7 +163,7 @@ body{
 }
 
 .card {
-  width: 15em; 
+  width: 15em;
   background: rgba(255, 255, 254, 0.14);
   border-radius: 7px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -198,7 +198,7 @@ body{
 }
 
 .user {
-  border-left: 2px solid #6CA0DC; 
+  border-left: 2px solid #6CA0DC;
 }
 
 .user p:first-child {

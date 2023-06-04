@@ -1,7 +1,7 @@
 body{
   margin: 0;
   height: 100vh;
-  font-family: 'Spectral', serif, 'Karla', sans-serif;
+  font-family: Poppins, sans-serif;
   -webkit-font-smoothing: antialiased;
   background-color: #16161a;
   box-sizing: border-box;

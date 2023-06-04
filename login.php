@@ -1,5 +1,10 @@
 <?php
+  session_start();
   require_once('connection/db.php');
+
+  $envFile = file_get_contents('.env');
+  $envVariables = parse_ini_string($envFile);
+  $siteKey = $envVariables['RECAPTCHA_SITE_KEY'];
 
   if (isset($_POST["submit"])) {
 
@@ -80,6 +85,8 @@
           <input type="checkbox" name="remember__me" id="remember__me">
           <label for="remember__me">Ingat Saya</label>
         </div>
+
+        <div class="g-recaptcha" data-sitekey="<?php echo $siteKey; ?>"></div>
 
         <button type="submit" id="login" name="submit">LOGIN</button>
         <!-- <a href="#" id="login">LOGIN</a> -->

@@ -141,7 +141,7 @@
                 $namaFile = uniqid() . $timestamp . '.' . pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
 
                 // tentukan lokasi file akan dipindahkan
-                $dirUpload = "Assets/upload/";
+                $dirUpload = "Assets/upload/donasi/";
 
                 // pindahkan file
                 $terupload = move_uploaded_file($namaSementara, $dirUpload.$namaFile);

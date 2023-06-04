@@ -8,7 +8,7 @@
 
   <!-- Link Favicon -->
   <link rel="shortcut icon" href="../Assets/image/nurfi-logo.png" type="image/x-icon">
-  
+
   <!-- Link My CSS -->
   <link rel="stylesheet" href="../Assets/css/admin/style.css">
   <link rel="stylesheet" href="../Assets/css/loader.css">
@@ -24,16 +24,9 @@
 </head>
 <body>
   <div class="container">
-    <div class="sidebar">
-      <h1>Menu</h1>
-      <a href="./index.html">Dashboard</a>
-      <a href="./beasiswa.html">Beasiswa</a>
-      <a href="./forum.html">Forum</a>
-      <a href="./sumberBelajar.html">Sumber Belajar</a>
-      <a href="./tips.html">Tips & Motivasi</a>
-      <a href="./donasi.html">Donasi</a>
-      <a href="./main.html">Beranda Utama</a>
-    </div>
+
+    <?php include('../partials/sidebarAdmin.php'); ?>
+
     <div class="content">
       <div class="top">
         <span class="toggle-icon">&#9776;</span>
@@ -48,7 +41,7 @@
           </div>
         </div>
       </div>
-      
+
       <!-- Summary Report -->
       <div class="summary__report">
         <div class="card admin">

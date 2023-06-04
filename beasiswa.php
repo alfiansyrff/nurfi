@@ -1,3 +1,9 @@
+<?php
+  session_start();
+  require_once('connection/db.php');
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,7 +57,7 @@
     </div>
     <span class="toggle-menu">&#9776;</span>
   </nav>
-  
+
   <!-- End of Navbar -->
 
   <!-- Scroll Indicator -->
@@ -66,32 +72,62 @@
   <main>
     <!-- Filter By -->
     <div class="menu__filter">
-      
+
       <h2>Pilih Jenjang Beasiswa</h2>
-      
+
       <div class="btn__container">
         <button>S1</button>
         <button>S2</button>
         <button>S3</button>
         <button class="btnActive">Semua Jenjang</button>
       </div>
-    
+
   </div>
+
   <!-- End of Filter By -->
-  
-  
+
+
   <!-- Cards -->
   <div class="cards">
-    <div class="card">
+    <?php
+      $query_select = "SELECT * FROM beasiswa";
+      $result = mysqli_query($conn, $query_select);
+      while ($row = mysqli_fetch_assoc($result)) {
+        ?>
+        <div class="card">
+          <div class="card-image">
+
+            <img src=<?php echo "./Assets/upload/beasiswa/" . $row['banner'] ?> alt="" width="20">
+          </div>
+
+          <div class="heading">
+            <div class="title"> <?php echo $row['beasiswa'] ?> </div>
+            <p class="description"> <?php echo implode(' ', array_slice(str_word_count($row['deskripsi'], 1), 0, 20)); ?> </p>
+          </div>
+
+          <div class="info">
+            <div class="tanggal">
+
+              <span><?php echo $row['waktu'] ?> </span>
+            </div>
+            <div class="btn">
+              <a href= <?php echo $row['link_informasi'] ?> ><span class="arrow">&#8627;</span> Daftar</a>
+            </div>
+          </div>
+        </div>
+    <?php
+      }
+    ?>
+    <!-- <div class="card">
       <div class="card-image">
         <img src="./Assets/image/carousel1.jpg" alt="">
       </div>
-      
+
       <div class="heading">
         <div class="title"> Beasiswa Djarum </div>
         <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, quibusdam?</p>
       </div>
-      
+
       <div class="info">
         <div class="tanggal">
           <span>Jumat</span>
@@ -99,19 +135,19 @@
         </div>
         <div class="btn">
           <a href="https://djarumbeasiswaplus.org/"><span class="arrow">&#8627;</span> Daftar</a>
-        </div>     
+        </div>
       </div>
     </div>
     <div class="card">
       <div class="card-image">
         <img src="./Assets/image/carousel1.jpg" alt="">
       </div>
-      
+
       <div class="heading">
         <div class="title"> Beasiswa Djarum </div>
         <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, quibusdam?</p>
       </div>
-      
+
       <div class="info">
         <div class="tanggal">
           <span>Jumat</span>
@@ -119,19 +155,19 @@
         </div>
         <div class="btn">
           <a href="https://djarumbeasiswaplus.org/"><span class="arrow">&#8627;</span> Daftar</a>
-        </div>     
+        </div>
       </div>
     </div>
     <div class="card">
       <div class="card-image">
         <img src="./Assets/image/carousel2.jpg" alt="">
       </div>
-      
+
       <div class="heading">
         <div class="title"> Beasiswa Djarum </div>
         <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, quibusdam?</p>
       </div>
-      
+
       <div class="info">
         <div class="tanggal">
           <span>Jumat</span>
@@ -139,19 +175,19 @@
         </div>
         <div class="btn">
           <a href="https://djarumbeasiswaplus.org/"><span class="arrow">&#8627;</span> Daftar</a>
-        </div>     
+        </div>
       </div>
     </div>
     <div class="card">
       <div class="card-image">
         <img src="./Assets/image/carousel2.jpg" alt="">
       </div>
-      
+
       <div class="heading">
         <div class="title"> Beasiswa Djarum </div>
         <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, quibusdam?</p>
       </div>
-      
+
       <div class="info">
         <div class="tanggal">
           <span>Jumat</span>
@@ -159,19 +195,19 @@
         </div>
         <div class="btn">
           <a href="#"><span class="arrow">&#8627;</span> Daftar</a>
-        </div>     
+        </div>
       </div>
     </div>
     <div class="card">
       <div class="card-image">
         <img src="./Assets/image/carousel1.jpg" alt="">
       </div>
-      
+
       <div class="heading">
         <div class="title"> Beasiswa Djarum </div>
         <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, quibusdam?</p>
       </div>
-      
+
       <div class="info">
         <div class="tanggal">
           <span>Jumat</span>
@@ -179,19 +215,19 @@
         </div>
         <div class="btn">
           <a href="#"><span class="arrow">&#8627;</span> Daftar</a>
-        </div>     
+        </div>
       </div>
     </div>
     <div class="card">
       <div class="card-image">
         <img src="./Assets/image/carousel1.jpg" alt="">
       </div>
-      
+
       <div class="heading">
         <div class="title"> Beasiswa Djarum </div>
         <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, quibusdam?</p>
       </div>
-      
+
       <div class="info">
         <div class="tanggal">
           <span>Jumat</span>
@@ -199,19 +235,19 @@
         </div>
         <div class="btn">
           <a href="#"><span class="arrow">&#8627;</span> Daftar</a>
-        </div>     
+        </div>
       </div>
     </div>
     <div class="card">
       <div class="card-image">
         <img src="./Assets/image/carousel1.jpg" alt="">
       </div>
-      
+
       <div class="heading">
         <div class="title"> Beasiswa Djarum </div>
         <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, quibusdam?</p>
       </div>
-      
+
       <div class="info">
         <div class="tanggal">
           <span>Jumat</span>
@@ -219,19 +255,19 @@
         </div>
         <div class="btn">
           <a href="#"><span class="arrow">&#8627;</span> Daftar</a>
-        </div>     
+        </div>
       </div>
     </div>
     <div class="card">
       <div class="card-image">
         <img src="./Assets/image/carousel1.jpg" alt="">
       </div>
-      
+
       <div class="heading">
         <div class="title"> Beasiswa Djarum </div>
         <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, quibusdam?</p>
       </div>
-      
+
       <div class="info">
         <div class="tanggal">
           <span>Jumat</span>
@@ -239,19 +275,19 @@
         </div>
         <div class="btn">
           <a href="#"><span class="arrow">&#8627;</span> Daftar</a>
-        </div>     
+        </div>
       </div>
     </div>
     <div class="card">
       <div class="card-image">
         <img src="./Assets/image/carousel2.jpg" alt="">
       </div>
-      
+
       <div class="heading">
         <div class="title"> Beasiswa Djarum </div>
         <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, quibusdam?</p>
       </div>
-      
+
       <div class="info">
         <div class="tanggal">
           <span>Jumat</span>
@@ -259,19 +295,19 @@
         </div>
         <div class="btn">
           <a href="#"><span class="arrow">&#8627;</span> Daftar</a>
-        </div>     
+        </div>
       </div>
     </div>
     <div class="card">
       <div class="card-image">
         <img src="./Assets/image/carousel2.jpg" alt="">
       </div>
-      
+
       <div class="heading">
         <div class="title"> Beasiswa Djarum </div>
         <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, quibusdam?</p>
       </div>
-      
+
       <div class="info">
         <div class="tanggal">
           <span>Jumat</span>
@@ -279,15 +315,15 @@
         </div>
         <div class="btn">
           <a href="#"><span class="arrow">&#8627;</span> Daftar</a>
-        </div>     
-      </div>
+        </div>
+      </div> -->
     </div>
     <!-- End of Cards -->
-    
+
   </div>
 </main>
   <!-- End of Main Content -->
-  
+
   <!-- footer -->
   <footer>
     <div class="footer-wrapper">
@@ -308,7 +344,7 @@
           <li> <a href="#">Tips</a></li>
           <li> <a href="#">Forum</a></li>
           <li> <a href="#">Belajar</a></li>
-       </ul>   
+       </ul>
       </div>
       <div class="copyright">
         <img src="./Assets/image/nurfi-logo.png" alt="logo">

@@ -1,11 +1,7 @@
 const modalOverlayAdd = document.querySelector(".modal-overlay-add");
 const modalAdd = document.querySelector(".modal-add");
-const modalOverlayEdit = document.querySelector(".modal-overlay-edit");
-const modalEdit = document.querySelector(".modal-edit");
 const closeBtnTop = document.querySelector(".close-modal");
-const closeBtnTopEdit = document.querySelector(".close-modal-edit");
 const closeBtnBtm = document.querySelector("#close__btn");
-const closeBtnBtmEdit = document.querySelector("#close__btn__edit");
 const addBtn = document.querySelector(".add__btn");
 const resetBtn = document.querySelector("#reset__btn");
 const form = document.querySelector('#add__form');
@@ -24,21 +20,21 @@ const showModalAddData = () => {
   modalAdd.classList.add("active");
 };
 
-const showModalEditData = () => {
-  modalOverlayEdit.classList.add("active");
-  modalEdit.classList.add("active");
-};
+// const showModalEditData = () => {
+//   modalOverlayEdit.classList.add("active");
+//   modalEdit.classList.add("active");
+// };
 
 const hideModal = () => {
   modalOverlayAdd.classList.remove("active");
   modalAdd.classList.remove("active");
 };
+//
+// const hideModalEdit = () => {
+//   modalOverlayEdit.classList.remove("active");
+//   modalEdit.classList.remove("active");
+// };
 
-const hideModalEdit = () => {
-  modalOverlayEdit.classList.remove("active");
-  modalEdit.classList.remove("active");
-};
-  
 
 const resetForm = () => {
   return confirm('Apakah Anda Yakin?') == true ? form.reset() : alert('Reset dibatalkan');
@@ -51,10 +47,10 @@ const deleteData = () => {
 addBtn.addEventListener("click", showModalAddData);
 
 closeBtnTop.addEventListener("click", hideModal);
-closeBtnTopEdit.addEventListener("click", hideModalEdit);
+
 
 closeBtnBtm.addEventListener("click", hideModal);
-closeBtnBtmEdit.addEventListener("click", hideModalEdit);
+
 
 resetBtn.addEventListener('click', resetForm);
 
@@ -62,9 +58,6 @@ deleteBtns.forEach(deleteBtn => {
   deleteBtn.addEventListener('click', deleteData);
 });
 
-editBtns.forEach(editBtn => {
-  editBtn.addEventListener('click', showModalEditData);
-});
 
 
 imageBtn.addEventListener("click", () => {
@@ -93,4 +86,3 @@ uploadBanner.onchange = () => {
     uploadBanner.type = 'file';
   }
 };
-

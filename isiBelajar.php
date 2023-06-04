@@ -1,3 +1,9 @@
+<?php
+  session_start();
+  require_once('./connection/db.php');
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +16,7 @@
   <link rel="stylesheet" href="./Assets/css/responsiveNavbar.css">
   <!-- Link Favicon -->
   <link rel="shortcut icon" href="./Assets/image/nurfi-logo.png" type="image/x-icon">
-  
+
   <title>Nurfi | Sumber Belajar</title>
 </head>
 <body>
@@ -23,7 +29,7 @@
     <ul class="menu">
       <li><a href="./index.html" class="hover-underline-animation">Beranda</a></li>
       <li class="dropdown">
-        <a href="#" class="dropdown__btn hover-underline-animation">Beasiswa 
+        <a href="#" class="dropdown__btn hover-underline-animation">Beasiswa
           <img src="./Assets/image/down-arrow.png" alt="down-arrow" id="dropdown__symbol">
         </a>
         <div class="dropdown__content">
@@ -50,7 +56,7 @@
     </div>
     <span class="toggle-menu">&#9776;</span>
   </nav>
-  
+
   <!-- End of Navbar -->
 
   <!-- Scroll Indicator -->
@@ -122,7 +128,7 @@
           <li> <a href="#">Tips</a></li>
           <li> <a href="#">Forum</a></li>
           <li> <a href="#">Belajar</a></li>
-       </ul>   
+       </ul>
       </div>
       <div class="copyright">
         <img src="./Assets/image/nurfi-logo.png" alt="logo">
@@ -143,13 +149,13 @@
   <script>
     const playBtn = document.querySelector("#play");
     const hiddenDiv = document.querySelector(".hidden");
-  
+
     playBtn.addEventListener('click', () => {
       hiddenDiv.style.display = 'block';
       hiddenDiv.style.transition = "1s";
     })
   </script>
-  
+
   <script src="./Assets/js/loader.js"></script>
   <script src="./Assets/js/responsiveNav.js"></script>
   <script src="./Assets/js/indicatorBar.js"></script>
